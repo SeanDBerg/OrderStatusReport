@@ -21,12 +21,9 @@ const CustomTooltip = ({ active, payload, label }: any) => {
 
 const ServiceTiers = () => {
   const transformedData = [
-    { name: 'T1 Technical', group: 'T1', value: serviceTiers[0].technical, type: 'Technical Support' },
-    { name: 'T1 Customer', group: 'T1', value: serviceTiers[0].customerService, type: 'Customer Service' },
-    { name: 'T2 Technical', group: 'T2', value: serviceTiers[1].technical, type: 'Technical Support' },
-    { name: 'T2 Customer', group: 'T2', value: serviceTiers[1].customerService, type: 'Customer Service' },
-    { name: 'T3 Technical', group: 'T3', value: serviceTiers[2].technical, type: 'Technical Support' },
-    { name: 'T3 Customer', group: 'T3', value: serviceTiers[2].customerService, type: 'Customer Service' }
+    { name: 'T1', technical: serviceTiers[0].technical, customer: serviceTiers[0].customerService },
+    { name: 'T2', technical: serviceTiers[1].technical, customer: serviceTiers[1].customerService },
+    { name: 'T3', technical: serviceTiers[2].technical, customer: serviceTiers[2].customerService }
   ];
 
   return (
@@ -45,34 +42,32 @@ const ServiceTiers = () => {
             >
               <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" strokeOpacity={0.5} />
               <XAxis 
-                dataKey="group"
+                dataKey="name"
                 stroke="var(--muted-foreground)" 
-                tick={{ fontSize: 10 }}
+                tick={{ fontSize: 10, fill: 'var(--muted-foreground)' }}
                 tickLine={{ stroke: 'var(--border)' }}
                 axisLine={{ stroke: 'var(--border)' }}
               />
               <YAxis 
                 stroke="var(--muted-foreground)" 
-                tick={{ fontSize: 10 }}
+                tick={{ fontSize: 10, fill: 'var(--muted-foreground)' }}
                 tickLine={{ stroke: 'var(--border)' }}
                 axisLine={{ stroke: 'var(--border)' }}
                 width={35}
               />
               <Tooltip content={<CustomTooltip />} />
-              <Legend iconSize={8} wrapperStyle={{ fontSize: '10px' }} />
+              <Legend iconSize={8} wrapperStyle={{ fontSize: '10px', color: 'var(--muted-foreground)' }} />
               <Bar 
-                dataKey="value"
+                dataKey="technical"
                 name="Technical Support"
                 fill="hsl(var(--chart-1))"
                 barSize={15}
-                stackId="a"
               />
               <Bar 
-                dataKey="value"
+                dataKey="customer"
                 name="Customer Service"
                 fill="hsl(var(--chart-4))"
                 barSize={15}
-                stackId="b"
               />
             </BarChart>
           </ResponsiveContainer>
