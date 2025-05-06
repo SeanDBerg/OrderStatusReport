@@ -65,7 +65,7 @@ const SupportTicketsTrend = () => {
               />
               <Line
                 type="monotone"
-                dataKey="issues"
+                dataKey="technicalSupport"
                 name="Technical Support"
                 stroke="hsl(var(--chart-1))"
                 strokeWidth={1.5}
@@ -73,9 +73,17 @@ const SupportTicketsTrend = () => {
               />
               <Line
                 type="monotone"
-                dataKey="onHold"
+                dataKey="customerService"
                 name="Customer Service"
                 stroke="hsl(var(--chart-4))"
+                strokeWidth={1.5}
+                dot={{ r: 2.5 }}
+              />
+              <Line
+                type="monotone"
+                dataKey="total"
+                name="Total Tickets"
+                stroke="hsl(var(--chart-2))"
                 strokeWidth={1.5}
                 dot={{ r: 2.5 }}
               />
