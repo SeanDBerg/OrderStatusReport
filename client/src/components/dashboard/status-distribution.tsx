@@ -28,39 +28,41 @@ const StatusDistribution = () => {
           <h2 className="font-semibold text-sm">Status Distribution</h2>
           <p className="text-xs text-muted-foreground">Current account status breakdown</p>
         </div>
-        <div className="h-[140px]">
-          <ResponsiveContainer width="100%" height="100%">
-            <PieChart>
-              <Pie
-                data={statusDistribution}
-                cx="50%"
-                cy="50%"
-                innerRadius={0}
-                outerRadius={50}
-                fill="#8884d8"
-                paddingAngle={1}
-                dataKey="value"
-                nameKey="name"
-              >
-                {statusDistribution.map((entry, index) => (
-                  <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                ))}
-              </Pie>
-              <Tooltip content={<CustomTooltip />} />
-            </PieChart>
-          </ResponsiveContainer>
-        </div>
-        
-        {/* Status table */}
-        <div className="mt-2">
-          <div className="grid grid-cols-2 gap-x-2 gap-y-1 text-xs">
-            {statusDistribution.map((status, index) => (
-              <div key={index} className="flex items-center py-0.5">
-                <div className={`w-2 h-2 rounded-full ${status.color} mr-1.5`}></div>
-                <span className="font-medium">{status.name}</span>
-                <span className="ml-auto font-medium">{status.percentage}%</span>
-              </div>
-            ))}
+        <div className="flex">
+          <div className="h-[80px] w-[80px]">
+            <ResponsiveContainer width="100%" height="100%">
+              <PieChart>
+                <Pie
+                  data={statusDistribution}
+                  cx="50%"
+                  cy="50%"
+                  innerRadius={0}
+                  outerRadius={35}
+                  fill="#8884d8"
+                  paddingAngle={1}
+                  dataKey="value"
+                  nameKey="name"
+                >
+                  {statusDistribution.map((entry, index) => (
+                    <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                  ))}
+                </Pie>
+                <Tooltip content={<CustomTooltip />} />
+              </PieChart>
+            </ResponsiveContainer>
+          </div>
+          
+          {/* Status table */}
+          <div className="flex-1">
+            <div className="grid grid-cols-2 gap-x-2 gap-y-0.5 text-xs">
+              {statusDistribution.map((status, index) => (
+                <div key={index} className="flex items-center py-0.5">
+                  <div className={`w-2 h-2 rounded-full ${status.color} mr-1.5`}></div>
+                  <span className="font-medium">{status.name}</span>
+                  <span className="ml-auto font-medium">{status.percentage}%</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </CardContent>

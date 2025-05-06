@@ -24,6 +24,8 @@ export interface TrendData {
 export interface ServiceTier {
   name: string;
   value: number;
+  technical?: number;
+  customerService?: number;
 }
 
 export interface OperationalStage {
@@ -121,9 +123,9 @@ export const trendData: TrendData[] = [
 
 // Service tiers
 export const serviceTiers: ServiceTier[] = [
-  { name: "Tier 1", value: 1124 },
-  { name: "Tier 2", value: 782 },
-  { name: "Tier 3", value: 552 }
+  { name: "Tier 1", value: 1124, technical: 721, customerService: 403 },
+  { name: "Tier 2", value: 782, technical: 489, customerService: 293 },
+  { name: "Tier 3", value: 552, technical: 302, customerService: 250 }
 ];
 
 // Issue types

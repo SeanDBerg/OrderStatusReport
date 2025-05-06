@@ -1,6 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
-import { serviceTiers, issueTypes } from "@/lib/mock-data";
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from "recharts";
+import { serviceTiers } from "@/lib/mock-data";
 import { formatNumber } from "@/lib/utils";
 
 const CustomTooltip = ({ active, payload, label }: any) => {
@@ -8,9 +8,11 @@ const CustomTooltip = ({ active, payload, label }: any) => {
     return (
       <div className="bg-card border border-border p-1.5 rounded-md shadow-sm text-xs">
         <p className="font-medium">{label}</p>
-        <p>
-          <span className="font-medium">{formatNumber(payload[0].value)}</span> accounts
-        </p>
+        {payload.map((entry: any, index: number) => (
+          <p key={index} style={{ color: entry.color }}>
+            {entry.name}: {formatNumber(entry.value)}
+          </p>
+        ))}
       </div>
     );
   }
@@ -19,20 +21,27 @@ const CustomTooltip = ({ active, payload, label }: any) => {
 };
 
 const ServiceTiers = () => {
+  // Transform data for the stacked bar chart
+  const transformedData = serviceTiers.map(tier => ({
+    name: tier.name,
+    Technical: tier.technical,
+    "Customer Service": tier.customerService
+  }));
+
   return (
     <Card className="shadow-sm">
       <CardContent className="p-3">
         <div className="mb-2">
           <h2 className="font-semibold text-sm">Service Tier Distribution</h2>
-          <p className="text-xs text-muted-foreground">Accounts by service level</p>
+          <p className="text-xs text-muted-foreground">Accounts by service level & issue type</p>
         </div>
-        <div className="h-[100px]">
+        <div className="h-[120px]">
           <ResponsiveContainer width="100%" height="100%">
             <BarChart
-              data={serviceTiers}
+              data={transformedData}
               margin={{
-                top: 15,
-                right: 10,
+                top: 10,
+                right: 0,
                 left: 0,
                 bottom: 5,
               }}
@@ -54,34 +63,41 @@ const ServiceTiers = () => {
                 width={15}
               />
               <Tooltip content={<CustomTooltip />} />
+              <Legend iconSize={8} wrapperStyle={{ fontSize: '8px' }} verticalAlign="top" height={20} />
               <Bar 
-                dataKey="value" 
+                dataKey="Technical" 
+                stackId="a"
                 fill="hsl(var(--chart-1))" 
+                radius={[0, 0, 0, 0]} 
+                barSize={15}
+              />
+              <Bar 
+                dataKey="Customer Service" 
+                stackId="a"
+                fill="hsl(var(--chart-4))" 
                 radius={[2, 2, 0, 0]} 
-                barSize={20}
-                label={{ 
-                  position: 'top', 
-                  fill: 'var(--foreground)',
-                  fontSize: 9,
-                  offset: 5
-                }}
+                barSize={15}
               />
             </BarChart>
           </ResponsiveContainer>
         </div>
         
-        {/* Issue breakdown */}
-        <div className="mt-3">
-          <h3 className="font-medium text-xs mb-1.5">Issue Type Breakdown</h3>
-          <div className="grid grid-cols-2 gap-2">
-            {issueTypes.map((issue, index) => (
-              <div key={index} className="bg-muted p-2 rounded text-xs">
-                <h4 className="font-medium text-muted-foreground">{issue.name}</h4>
-                <div className="font-semibold">{issue.count}</div>
-                <div className="mt-1 h-1.5 bg-muted-foreground/20 rounded-full overflow-hidden">
-                  <div className="h-full bg-accent" style={{ width: `${issue.percentage}%` }}></div>
+        {/* Tier details */}
+        <div className="mt-2">
+          <div className="grid grid-cols-3 gap-1 text-xs">
+            {serviceTiers.map((tier, index) => (
+              <div key={index} className="bg-muted p-1.5 rounded">
+                <h4 className="font-medium text-center">{tier.name}</h4>
+                <div className="flex justify-between text-[9px] mt-1">
+                  <div>
+                    <span className="font-medium block">Technical</span>
+                    <span className="text-accent">{formatNumber(tier.technical || 0)}</span>
+                  </div>
+                  <div>
+                    <span className="font-medium block">Customer</span>
+                    <span className="text-accent">{formatNumber(tier.customerService || 0)}</span>
+                  </div>
                 </div>
-                <div className="text-xs text-muted-foreground mt-0.5">{issue.percentage}%</div>
               </div>
             ))}
           </div>
