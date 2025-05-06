@@ -21,21 +21,12 @@ const CustomTooltip = ({ active, payload, label }: any) => {
 
 const ServiceTiers = () => {
   const transformedData = [
-    { 
-      name: 'T1',
-      Technical: serviceTiers[0].technical,
-      "Customer Service": serviceTiers[0].customerService
-    },
-    { 
-      name: 'T2',
-      Technical: serviceTiers[1].technical,
-      "Customer Service": serviceTiers[1].customerService
-    },
-    { 
-      name: 'T3',
-      Technical: serviceTiers[2].technical,
-      "Customer Service": serviceTiers[2].customerService
-    }
+    { name: 'T1', value: serviceTiers[0].technical, type: 'Technical' },
+    { name: 'T1', value: serviceTiers[0].customerService, type: 'Customer Service' },
+    { name: 'T2', value: serviceTiers[1].technical, type: 'Technical' },
+    { name: 'T2', value: serviceTiers[1].customerService, type: 'Customer Service' },
+    { name: 'T3', value: serviceTiers[2].technical, type: 'Technical' },
+    { name: 'T3', value: serviceTiers[2].customerService, type: 'Customer Service' }
   ];
 
   return (
@@ -70,18 +61,10 @@ const ServiceTiers = () => {
               <Tooltip content={<CustomTooltip />} />
               <Legend iconSize={8} wrapperStyle={{ fontSize: '10px' }} />
               <Bar 
-                dataKey="Technical" 
-                stackId="a"
-                fill="hsl(var(--chart-1))" 
-                radius={[0, 0, 0, 0]} 
-                barSize={20}
-              />
-              <Bar 
-                dataKey="Customer Service" 
-                stackId="a"
-                fill="hsl(var(--chart-4))" 
-                radius={[2, 2, 0, 0]} 
-                barSize={20}
+                dataKey="value"
+                fill={(data) => data.type === 'Technical' ? 'hsl(var(--chart-1))' : 'hsl(var(--chart-4))'}
+                name={(data) => data.type}
+                barSize={15}
               />
             </BarChart>
           </ResponsiveContainer>
