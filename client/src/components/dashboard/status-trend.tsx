@@ -32,7 +32,7 @@ const StatusTrend = () => {
             <div className="tooltip-content">Filter disabled in demonstration mode</div>
           </div>
         </div>
-        <div className="h-20">
+        <div className="h-[120px]">
           <ResponsiveContainer width="100%" height="100%">
             <LineChart
               data={trendData}
