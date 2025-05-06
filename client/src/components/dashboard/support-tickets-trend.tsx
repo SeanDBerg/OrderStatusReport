@@ -67,24 +67,24 @@ const SupportTicketsTrend = () => {
                 dataKey="technicalSupport"
                 name="Technical Support"
                 stroke="hsl(var(--chart-1))"
-                strokeWidth={1.5}
-                dot={{ r: 2.5 }}
+                strokeWidth={1}
+                dot={{ r: 1.5 }}
               />
               <Line
                 type="monotone"
                 dataKey="customerService"
                 name="Customer Service"
                 stroke="hsl(var(--chart-4))"
-                strokeWidth={1.5}
-                dot={{ r: 2.5 }}
+                strokeWidth={1}
+                dot={{ r: 1.5 }}
               />
               <Line
                 type="monotone"
                 dataKey="total"
                 name="Total Tickets"
                 stroke="hsl(var(--chart-2))"
-                strokeWidth={1.5}
-                dot={{ r: 2.5 }}
+                strokeWidth={1}
+                dot={{ r: 1.5 }}
               />
             </LineChart>
           </ResponsiveContainer>

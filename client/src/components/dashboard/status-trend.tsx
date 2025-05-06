@@ -74,24 +74,24 @@ const StatusTrend = () => {
                 name="Active"
                 stroke="hsl(var(--chart-1))"
                 activeDot={{ r: 4 }}
-                strokeWidth={1.5}
-                dot={{ r: 2.5 }}
+                strokeWidth={1}
+                dot={{ r: 1.5 }}
               />
               <Line
                 type="monotone"
                 dataKey="onHold"
                 name="On Hold"
                 stroke="hsl(var(--chart-3))"
-                strokeWidth={1.5}
-                dot={{ r: 2.5 }}
+                strokeWidth={1}
+                dot={{ r: 1.5 }}
               />
               <Line
                 type="monotone"
                 dataKey="issues"
                 name="Issues"
                 stroke="hsl(var(--chart-4))"
-                strokeWidth={1.5}
-                dot={{ r: 2.5 }}
+                strokeWidth={1}
+                dot={{ r: 1.5 }}
               />
             </LineChart>
           </ResponsiveContainer>

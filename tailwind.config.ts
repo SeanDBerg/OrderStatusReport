@@ -10,6 +10,15 @@ export default {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      spacing: {
+        'sidebar': '260px',
+      },
+      dropShadow: {
+        'card': '0 2px 4px rgba(0, 0, 0, 0.05)',
+      },
+      fontFamily: {
+        sans: ['"Helvetica Neue"', 'ui-sans-serif', 'system-ui'],
+      },
       colors: {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
