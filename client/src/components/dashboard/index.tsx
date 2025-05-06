@@ -65,12 +65,14 @@ const Dashboard = () => {
           </div>
 
           <div className="grid grid-cols-12 gap-3">
-            {/* First row: Account Status Trend & Distribution */}
-            <div className="col-span-12 lg:col-span-6">
-              <StatusTrend />
-            </div>
-            <div className="col-span-12 lg:col-span-6">
-              <StatusDistribution />
+            {/* First row: Status Trend & Distribution side by side */}
+            <div className="col-span-12 grid grid-cols-2 gap-3">
+              <div className="col-span-1">
+                <StatusTrend />
+              </div>
+              <div className="col-span-1">
+                <StatusDistribution />
+              </div>
             </div>
             
             {/* Second row: Service Tier & Operational Stages */}
