@@ -1,5 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowDown, ArrowUp, Users, CheckCircle, AlertTriangle, PauseCircle } from "lucide-react";
+import { ArrowDown, ArrowUp, Users, CheckCircle, AlertTriangle, PauseCircle, Activity, PlusCircle } from "lucide-react";
 import { formatNumber } from "@/lib/utils";
 
 interface MetricCardProps {
@@ -22,6 +22,10 @@ const MetricCard = ({ title, value, percentageChange, isPositive, icon, compareP
         return <PauseCircle className="h-3.5 w-3.5 text-warning" />;
       case "alert-triangle":
         return <AlertTriangle className="h-3.5 w-3.5 text-destructive" />;
+      case "activity":
+        return <Activity className="h-3.5 w-3.5 text-accent" />;
+      case "plus-circle":
+        return <PlusCircle className="h-3.5 w-3.5 text-success" />;
       default:
         return <Users className="h-3.5 w-3.5 text-accent" />;
     }
@@ -32,11 +36,14 @@ const MetricCard = ({ title, value, percentageChange, isPositive, icon, compareP
       case "users":
         return "bg-accent/10";
       case "check-circle":
+      case "plus-circle":
         return "bg-success/10";
       case "pause-circle":
         return "bg-warning/10";
       case "alert-triangle":
         return "bg-destructive/10";
+      case "activity":
+        return "bg-accent/10";
       default:
         return "bg-accent/10";
     }

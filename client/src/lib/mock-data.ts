@@ -80,6 +80,22 @@ export const metricCards: MetricCard[] = [
     isPositive: false,
     icon: "alert-triangle",
     comparePeriod: "from last month"
+  },
+  {
+    title: "In Progress",
+    value: 629,
+    percentageChange: 7.2,
+    isPositive: true,
+    icon: "activity",
+    comparePeriod: "from last month"
+  },
+  {
+    title: "New Today",
+    value: 43,
+    percentageChange: 10.5,
+    isPositive: true,
+    icon: "plus-circle",
+    comparePeriod: "vs yesterday"
   }
 ];
 

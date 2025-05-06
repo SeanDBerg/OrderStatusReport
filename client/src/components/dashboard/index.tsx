@@ -58,7 +58,7 @@ const Dashboard = () => {
           </div>
 
           {/* Key metrics overview */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-3">
+          <div className="grid grid-cols-3 md:grid-cols-6 gap-2 mb-3">
             {metricCards.map((card, index) => (
               <MetricCard key={index} {...card} />
             ))}
@@ -66,10 +66,10 @@ const Dashboard = () => {
 
           <div className="grid grid-cols-12 gap-3">
             {/* First row: Account Status Trend & Distribution */}
-            <div className="col-span-12 lg:col-span-8">
+            <div className="col-span-12 lg:col-span-6">
               <StatusTrend />
             </div>
-            <div className="col-span-12 lg:col-span-4">
+            <div className="col-span-12 lg:col-span-6">
               <StatusDistribution />
             </div>
             

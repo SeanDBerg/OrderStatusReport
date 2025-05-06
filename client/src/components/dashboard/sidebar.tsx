@@ -8,7 +8,7 @@ interface SidebarProps {
 const Sidebar = ({ isOpen, setIsOpen }: SidebarProps) => {
   return (
     <aside 
-      className={`${isOpen ? 'fixed top-0 left-0 h-full z-30' : 'hidden'} md:block md:static md:h-auto md:z-auto w-50 bg-card dark:bg-card border-r border-border overflow-y-auto transition-colors duration-300`}
+      className={`${isOpen ? 'fixed top-0 left-0 h-full z-30' : 'hidden'} md:block md:static md:h-auto md:z-auto w-40 bg-card dark:bg-card border-r border-border overflow-y-auto transition-colors duration-300`}
     >
       <div className="p-3">
         <h3 className="font-semibold text-sm mb-2">Filters</h3>
@@ -46,7 +46,7 @@ const Sidebar = ({ isOpen, setIsOpen }: SidebarProps) => {
         {/* Account Status */}
         <div className="mb-3">
           <label className="block text-xs font-medium mb-1">Account Status</label>
-          <div className="grid grid-cols-2 gap-x-2 gap-y-1">
+          <div className="space-y-1">
             <div className="flex items-center">
               <input id="status-complete" name="status" type="checkbox" checked readOnly className="h-3 w-3 text-accent focus:ring-accent cursor-not-allowed opacity-75" />
               <label htmlFor="status-complete" className="ml-1.5 text-xs">Complete</label>
