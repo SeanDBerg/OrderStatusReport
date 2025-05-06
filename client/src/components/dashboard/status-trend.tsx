@@ -6,10 +6,10 @@ const CustomTooltip = ({ active, payload, label }: any) => {
   if (active && payload && payload.length) {
     return (
       <div className="bg-card border border-border p-1.5 rounded-md shadow-sm text-xs">
-        <p className="font-medium">{label}</p>
+        <p className="font-medium text-foreground">{label}</p>
         {payload.map((entry: any, index: number) => (
           <p key={index} style={{ color: entry.color }}>
-            {entry.name}: {entry.value}
+            <span className="text-foreground">{entry.name}:</span> {entry.value}
           </p>
         ))}
       </div>
@@ -54,13 +54,17 @@ const StatusTrend = () => {
               />
               <YAxis 
                 stroke="var(--muted-foreground)" 
-                tick={{ fontSize: 10, fill: 'var(--muted-foreground)' }}
+                tick={{ fontSize: 9, fill: 'var(--muted-foreground)' }}
                 tickLine={{ stroke: 'var(--border)' }}
                 axisLine={{ stroke: 'var(--border)' }}
                 width={25}
               />
               <Tooltip content={<CustomTooltip />} />
-              <Legend iconSize={8} wrapperStyle={{ fontSize: '10px' }} />
+              <Legend 
+                iconSize={8} 
+                wrapperStyle={{ fontSize: '10px' }} 
+                formatter={(value) => <span style={{ color: 'var(--muted-foreground)' }}>{value}</span>}
+              />
               <Line
                 type="monotone"
                 dataKey="active"

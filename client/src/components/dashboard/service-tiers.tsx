@@ -7,10 +7,10 @@ const CustomTooltip = ({ active, payload, label }: any) => {
   if (active && payload && payload.length) {
     return (
       <div className="bg-card border border-border p-1.5 rounded-md shadow-sm text-xs">
-        <p className="font-medium">{label}</p>
+        <p className="font-medium text-foreground">{label}</p>
         {payload.map((entry: any, index: number) => (
           <p key={index} style={{ color: entry.color }}>
-            {entry.name}: {formatNumber(entry.value)}
+            <span className="text-foreground">{entry.name}:</span> {formatNumber(entry.value)}
           </p>
         ))}
       </div>
@@ -52,7 +52,7 @@ const ServiceTiers = () => {
               <XAxis 
                 dataKey="name"
                 stroke="var(--muted-foreground)" 
-                tick={{ fontSize: 10, fill: 'var(--muted-foreground)' }}
+                tick={{ fontSize: 9, fill: 'var(--muted-foreground)' }}
                 tickLine={{ stroke: 'var(--border)' }}
                 axisLine={{ stroke: 'var(--border)' }}
               />

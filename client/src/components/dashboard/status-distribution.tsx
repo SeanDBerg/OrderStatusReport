@@ -9,8 +9,8 @@ const CustomTooltip = ({ active, payload }: any) => {
   if (active && payload && payload.length) {
     return (
       <div className="bg-card border border-border p-1.5 rounded-md shadow-sm text-xs">
-        <p className="font-medium">{payload[0].name}</p>
-        <p>
+        <p className="font-medium text-foreground">{payload[0].name}</p>
+        <p className="text-foreground">
           <span className="font-medium">{payload[0].value}</span> ({payload[0].payload.percentage}%)
         </p>
       </div>
