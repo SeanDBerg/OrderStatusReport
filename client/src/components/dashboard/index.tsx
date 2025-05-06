@@ -4,6 +4,7 @@ import Sidebar from "./sidebar";
 import Footer from "./footer";
 import StatusTrend from "./status-trend";
 import StatusDistribution from "./status-distribution";
+import SupportTicketsTrend from "./support-tickets-trend";
 import ServiceTiers from "./service-tiers";
 import OperationalStages from "./operational-stages";
 import RecentActivity from "./recent-activity";
@@ -75,11 +76,18 @@ const Dashboard = () => {
               </div>
             </div>
             
-            {/* Second row: Service Tier & Operational Stages */}
-            <div className="col-span-12 lg:col-span-4">
-              <ServiceTiers />
+            {/* Second row: Support Tickets Trend & Service Tier Distribution */}
+            <div className="col-span-12 grid grid-cols-2 gap-3">
+              <div className="col-span-1">
+                <SupportTicketsTrend />
+              </div>
+              <div className="col-span-1">
+                <ServiceTiers />
+              </div>
             </div>
-            <div className="col-span-12 lg:col-span-8">
+            
+            {/* Third row: Operational Stages */}
+            <div className="col-span-12">
               <OperationalStages />
             </div>
             
