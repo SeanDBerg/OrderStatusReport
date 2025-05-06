@@ -5,24 +5,24 @@ import { formatNumber } from "@/lib/utils";
 
 const OperationalStages = () => {
   return (
-    <Card>
-      <CardContent className="p-6">
-        <div className="mb-6">
-          <h2 className="font-semibold text-lg">Operational Stages</h2>
-          <p className="text-sm text-muted-foreground">Current account distribution by stage</p>
+    <Card className="shadow-sm">
+      <CardContent className="p-3">
+        <div className="mb-2">
+          <h2 className="font-semibold text-sm">Operational Stages</h2>
+          <p className="text-xs text-muted-foreground">Current account distribution by stage</p>
         </div>
         
-        {/* Progress bars for stages */}
-        <div className="space-y-4">
+        {/* Progress bars for stages - 2-column layout */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-1.5">
           {operationalStages.map((stage, index) => (
             <div key={index}>
-              <div className="flex justify-between mb-1">
-                <span className="text-sm font-medium">{stage.name}</span>
-                <span className="text-sm font-medium">{formatNumber(stage.count)}</span>
+              <div className="flex justify-between mb-0.5">
+                <span className="text-xs font-medium">{stage.name}</span>
+                <span className="text-xs font-medium">{formatNumber(stage.count)}</span>
               </div>
-              <div className="h-2.5 bg-muted rounded-full">
+              <div className="h-1.5 bg-muted rounded-full">
                 <div 
-                  className={`h-2.5 ${index === 0 ? 'bg-success' : 'bg-accent'} rounded-full`}
+                  className={`h-1.5 ${index === 0 ? 'bg-success' : 'bg-accent'} rounded-full`}
                   style={{ width: `${stage.percentage}%` }}
                 ></div>
               </div>
@@ -31,28 +31,28 @@ const OperationalStages = () => {
         </div>
         
         {/* Trend indicators */}
-        <div className="grid grid-cols-2 gap-4 mt-6">
-          <div className="p-4 bg-muted rounded">
-            <h3 className="text-sm font-medium text-muted-foreground mb-2">Average Processing Time</h3>
-            <div className="text-lg font-semibold">18.4 days</div>
-            <div className="flex items-center mt-1">
+        <div className="grid grid-cols-2 gap-3 mt-3">
+          <div className="p-2 bg-muted rounded">
+            <h3 className="text-xs font-medium text-muted-foreground mb-1">Avg Processing Time</h3>
+            <div className="text-sm font-semibold">18.4 days</div>
+            <div className="flex items-center mt-0.5">
               <span className="text-success text-xs font-medium flex items-center">
-                <ArrowUp className="h-4 w-4 mr-1" />
+                <ArrowUp className="h-3 w-3 mr-0.5" />
                 2.3 days
               </span>
-              <span className="text-muted-foreground text-xs ml-1">faster than last month</span>
+              <span className="text-muted-foreground text-xs ml-1">faster</span>
             </div>
           </div>
           
-          <div className="p-4 bg-muted rounded">
-            <h3 className="text-sm font-medium text-muted-foreground mb-2">Stage Transition Rate</h3>
-            <div className="text-lg font-semibold">9.2%</div>
-            <div className="flex items-center mt-1">
+          <div className="p-2 bg-muted rounded">
+            <h3 className="text-xs font-medium text-muted-foreground mb-1">Stage Transition Rate</h3>
+            <div className="text-sm font-semibold">9.2%</div>
+            <div className="flex items-center mt-0.5">
               <span className="text-success text-xs font-medium flex items-center">
-                <ArrowUp className="h-4 w-4 mr-1" />
+                <ArrowUp className="h-3 w-3 mr-0.5" />
                 1.4%
               </span>
-              <span className="text-muted-foreground text-xs ml-1">from last month</span>
+              <span className="text-muted-foreground text-xs ml-1">vs last month</span>
             </div>
           </div>
         </div>

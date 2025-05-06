@@ -15,15 +15,15 @@ const MetricCard = ({ title, value, percentageChange, isPositive, icon, compareP
   const renderIcon = () => {
     switch (icon) {
       case "users":
-        return <Users className="h-5 w-5 text-accent" />;
+        return <Users className="h-3.5 w-3.5 text-accent" />;
       case "check-circle":
-        return <CheckCircle className="h-5 w-5 text-success" />;
+        return <CheckCircle className="h-3.5 w-3.5 text-success" />;
       case "pause-circle":
-        return <PauseCircle className="h-5 w-5 text-warning" />;
+        return <PauseCircle className="h-3.5 w-3.5 text-warning" />;
       case "alert-triangle":
-        return <AlertTriangle className="h-5 w-5 text-destructive" />;
+        return <AlertTriangle className="h-3.5 w-3.5 text-destructive" />;
       default:
-        return <Users className="h-5 w-5 text-accent" />;
+        return <Users className="h-3.5 w-3.5 text-accent" />;
     }
   };
 
@@ -43,27 +43,27 @@ const MetricCard = ({ title, value, percentageChange, isPositive, icon, compareP
   };
 
   return (
-    <Card>
-      <CardContent className="p-6">
-        <div className="flex items-center justify-between mb-4">
-          <h3 className="text-sm font-medium text-muted-foreground">{title}</h3>
-          <div className={`p-2 ${getIconBgColor()} rounded-full`}>
+    <Card className="shadow-sm">
+      <CardContent className="p-3">
+        <div className="flex items-center justify-between mb-2">
+          <h3 className="text-xs font-medium text-muted-foreground">{title}</h3>
+          <div className={`p-1 ${getIconBgColor()} rounded-full`}>
             {renderIcon()}
           </div>
         </div>
-        <div className="mb-2">
-          <span className="text-3xl font-bold">{formatNumber(value)}</span>
+        <div className="mb-1">
+          <span className="text-xl font-bold">{formatNumber(value)}</span>
         </div>
-        <div className="flex items-center text-sm">
+        <div className="flex items-center text-xs">
           <span className={`font-medium flex items-center ${isPositive ? 'text-success' : 'text-destructive'}`}>
             {isPositive ? (
-              <ArrowUp className="h-4 w-4 mr-1" />
+              <ArrowUp className="h-3 w-3 mr-0.5" />
             ) : (
-              <ArrowDown className="h-4 w-4 mr-1" />
+              <ArrowDown className="h-3 w-3 mr-0.5" />
             )}
             {percentageChange}%
           </span>
-          <span className="text-muted-foreground ml-2">{comparePeriod}</span>
+          <span className="text-muted-foreground ml-1">{comparePeriod}</span>
         </div>
       </CardContent>
     </Card>

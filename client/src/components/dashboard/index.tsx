@@ -24,32 +24,32 @@ const Dashboard = () => {
       <div className="flex-grow flex h-full">
         <Sidebar isOpen={isSidebarOpen} setIsOpen={setIsSidebarOpen} />
 
-        <main className="flex-grow p-6 overflow-y-auto bg-background transition-colors duration-300">
+        <main className="flex-grow p-3 overflow-y-auto bg-background transition-colors duration-300">
           {/* Mobile menu button */}
-          <div className="md:hidden mb-4">
+          <div className="md:hidden mb-2">
             <button 
               onClick={toggleSidebar}
-              className="text-foreground p-2 focus:outline-none"
+              className="text-foreground p-1 focus:outline-none"
               aria-label="Toggle sidebar menu"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
               </svg>
             </button>
           </div>
 
           {/* Dashboard title */}
-          <div className="flex flex-wrap justify-between items-center mb-6">
-            <h1 className="text-2xl font-bold">Account Analytics Dashboard</h1>
+          <div className="flex flex-wrap justify-between items-center mb-3">
+            <h1 className="text-lg font-bold">Account Analytics Dashboard</h1>
             <div className="flex space-x-2">
               <div className="tooltip">
-                <button className="px-3 py-1.5 bg-accent text-accent-foreground rounded hover:bg-accent/90 text-sm font-medium focus:outline-none">
+                <button className="px-2 py-1 bg-accent text-accent-foreground rounded hover:bg-accent/90 text-xs font-medium focus:outline-none">
                   <span className="hidden sm:inline-block">Generate</span> Report
                 </button>
                 <div className="tooltip-content">Report generation disabled in demonstration mode</div>
               </div>
               <div className="tooltip">
-                <button className="px-3 py-1.5 bg-card border border-border rounded text-foreground text-sm font-medium focus:outline-none">
+                <button className="px-2 py-1 bg-card border border-border rounded text-foreground text-xs font-medium focus:outline-none">
                   <span className="hidden sm:inline-block">Share</span> Dashboard
                 </button>
                 <div className="tooltip-content">Sharing disabled in demonstration mode</div>
@@ -58,34 +58,34 @@ const Dashboard = () => {
           </div>
 
           {/* Key metrics overview */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-3">
             {metricCards.map((card, index) => (
               <MetricCard key={index} {...card} />
             ))}
           </div>
 
-          {/* Account Status Trend & Distribution */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
-            <div className="lg:col-span-2">
+          <div className="grid grid-cols-12 gap-3">
+            {/* First row: Account Status Trend & Distribution */}
+            <div className="col-span-12 lg:col-span-8">
               <StatusTrend />
             </div>
-            <div>
+            <div className="col-span-12 lg:col-span-4">
               <StatusDistribution />
             </div>
-          </div>
-
-          {/* Service Tier & Operational Stages */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
-            <div>
+            
+            {/* Second row: Service Tier & Operational Stages */}
+            <div className="col-span-12 lg:col-span-4">
               <ServiceTiers />
             </div>
-            <div className="lg:col-span-2">
+            <div className="col-span-12 lg:col-span-8">
               <OperationalStages />
             </div>
+            
+            {/* Third row: Recent Account Activity */}
+            <div className="col-span-12">
+              <RecentActivity />
+            </div>
           </div>
-
-          {/* Recent Account Activity */}
-          <RecentActivity />
         </main>
       </div>
 

@@ -6,9 +6,9 @@ import { formatNumber } from "@/lib/utils";
 const CustomTooltip = ({ active, payload, label }: any) => {
   if (active && payload && payload.length) {
     return (
-      <div className="bg-card border border-border p-2 rounded-md shadow-sm">
-        <p className="font-medium text-sm">{label}</p>
-        <p className="text-sm">
+      <div className="bg-card border border-border p-1.5 rounded-md shadow-sm text-xs">
+        <p className="font-medium">{label}</p>
+        <p>
           <span className="font-medium">{formatNumber(payload[0].value)}</span> accounts
         </p>
       </div>
@@ -20,36 +20,50 @@ const CustomTooltip = ({ active, payload, label }: any) => {
 
 const ServiceTiers = () => {
   return (
-    <Card>
-      <CardContent className="p-6">
-        <div className="mb-6">
-          <h2 className="font-semibold text-lg">Service Tier Distribution</h2>
-          <p className="text-sm text-muted-foreground">Accounts by service level</p>
+    <Card className="shadow-sm">
+      <CardContent className="p-3">
+        <div className="mb-2">
+          <h2 className="font-semibold text-sm">Service Tier Distribution</h2>
+          <p className="text-xs text-muted-foreground">Accounts by service level</p>
         </div>
-        <div className="h-[200px]">
+        <div className="h-[100px]">
           <ResponsiveContainer width="100%" height="100%">
             <BarChart
               data={serviceTiers}
               margin={{
-                top: 5,
-                right: 30,
-                left: 20,
+                top: 15,
+                right: 10,
+                left: 0,
                 bottom: 5,
               }}
+              barGap={2}
             >
-              <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" />
-              <XAxis dataKey="name" stroke="var(--muted-foreground)" />
-              <YAxis stroke="var(--muted-foreground)" />
+              <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" strokeOpacity={0.5} />
+              <XAxis 
+                dataKey="name" 
+                stroke="var(--muted-foreground)" 
+                tick={{ fontSize: 9 }}
+                tickLine={{ stroke: 'var(--border)' }}
+                axisLine={{ stroke: 'var(--border)' }}
+              />
+              <YAxis 
+                stroke="var(--muted-foreground)" 
+                tick={{ fontSize: 9 }}
+                tickLine={{ stroke: 'var(--border)' }}
+                axisLine={{ stroke: 'var(--border)' }}
+                width={15}
+              />
               <Tooltip content={<CustomTooltip />} />
               <Bar 
                 dataKey="value" 
                 fill="hsl(var(--chart-1))" 
-                radius={[4, 4, 0, 0]} 
-                barSize={40}
+                radius={[2, 2, 0, 0]} 
+                barSize={20}
                 label={{ 
                   position: 'top', 
                   fill: 'var(--foreground)',
-                  fontSize: 12
+                  fontSize: 9,
+                  offset: 5
                 }}
               />
             </BarChart>
@@ -57,17 +71,17 @@ const ServiceTiers = () => {
         </div>
         
         {/* Issue breakdown */}
-        <div className="mt-6">
-          <h3 className="font-medium text-base mb-3">Issue Type Breakdown</h3>
-          <div className="grid grid-cols-2 gap-4">
+        <div className="mt-3">
+          <h3 className="font-medium text-xs mb-1.5">Issue Type Breakdown</h3>
+          <div className="grid grid-cols-2 gap-2">
             {issueTypes.map((issue, index) => (
-              <div key={index} className="bg-muted p-4 rounded">
-                <h4 className="text-sm font-medium text-muted-foreground mb-1">{issue.name}</h4>
-                <div className="text-lg font-semibold">{issue.count}</div>
-                <div className="mt-1 h-2 bg-muted-foreground/20 rounded-full overflow-hidden">
+              <div key={index} className="bg-muted p-2 rounded text-xs">
+                <h4 className="font-medium text-muted-foreground">{issue.name}</h4>
+                <div className="font-semibold">{issue.count}</div>
+                <div className="mt-1 h-1.5 bg-muted-foreground/20 rounded-full overflow-hidden">
                   <div className="h-full bg-accent" style={{ width: `${issue.percentage}%` }}></div>
                 </div>
-                <div className="text-xs text-muted-foreground mt-1">{issue.percentage}% of total</div>
+                <div className="text-xs text-muted-foreground mt-0.5">{issue.percentage}%</div>
               </div>
             ))}
           </div>
