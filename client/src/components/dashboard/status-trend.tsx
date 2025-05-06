@@ -1,6 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from "recharts";
-import { trendData } from "@/lib/mock-data";
+import { statusTrendData } from "@/lib/mock-data";
 
 const CustomTooltip = ({ active, payload, label }: any) => {
   if (active && payload && payload.length) {
@@ -39,7 +39,7 @@ const StatusTrend = () => {
         <div className="h-[120px]">
           <ResponsiveContainer width="100%" height="100%">
             <LineChart
-              data={trendData}
+              data={statusTrendData}
               margin={{
                 top: 0,
                 right: 25,

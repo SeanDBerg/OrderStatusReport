@@ -14,11 +14,18 @@ export interface MetricCard {
   comparePeriod: string;
 }
 
-export interface TrendData {
+export interface StatusTrendData {
   name: string;
   active: number;
   onHold: number;
   issues: number;
+}
+
+export interface SupportTrendData {
+  name: string;
+  technicalSupport: number;
+  customerService: number;
+  total: number;
 }
 
 export interface ServiceTier {
@@ -112,38 +119,72 @@ export const statusDistribution: StatusData[] = [
   { name: "Cancelled", value: 49, percentage: 2, color: "bg-gray-500" }
 ];
 
-// Trend data (Last 30 days)
-export const trendData: TrendData[] = [
+// Status trend data (Last 30 days)
+export const statusTrendData: StatusTrendData[] = [
+  { name: "May 1", active: 1900, onHold: 290, issues: 150 },
+  { name: "May 2", active: 1920, onHold: 285, issues: 145 },
+  { name: "May 3", active: 1915, onHold: 295, issues: 158 },
+  { name: "May 4", active: 1940, onHold: 280, issues: 162 },
+  { name: "May 5", active: 1935, onHold: 288, issues: 147 },
+  { name: "May 6", active: 1960, onHold: 275, issues: 154 },
+  { name: "May 7", active: 1955, onHold: 282, issues: 149 },
+  { name: "May 8", active: 1980, onHold: 270, issues: 156 },
+  { name: "May 9", active: 1975, onHold: 278, issues: 151 },
+  { name: "May 10", active: 2000, onHold: 265, issues: 158 },
+  { name: "May 11", active: 1995, onHold: 272, issues: 153 },
+  { name: "May 12", active: 2020, onHold: 260, issues: 160 },
+  { name: "May 13", active: 2015, onHold: 268, issues: 155 },
+  { name: "May 14", active: 2040, onHold: 255, issues: 162 },
+  { name: "May 15", active: 2035, onHold: 262, issues: 157 },
+  { name: "May 16", active: 2060, onHold: 250, issues: 164 },
+  { name: "May 17", active: 2055, onHold: 258, issues: 159 },
+  { name: "May 18", active: 2080, onHold: 245, issues: 166 },
+  { name: "May 19", active: 2075, onHold: 252, issues: 161 },
+  { name: "May 20", active: 2100, onHold: 240, issues: 168 },
+  { name: "May 21", active: 2095, onHold: 248, issues: 163 },
+  { name: "May 22", active: 2120, onHold: 235, issues: 170 },
+  { name: "May 23", active: 2115, onHold: 242, issues: 165 },
+  { name: "May 24", active: 2140, onHold: 230, issues: 172 },
+  { name: "May 25", active: 2135, onHold: 238, issues: 167 },
+  { name: "May 26", active: 2160, onHold: 225, issues: 174 },
+  { name: "May 27", active: 2155, onHold: 232, issues: 169 },
+  { name: "May 28", active: 2180, onHold: 220, issues: 176 },
+  { name: "May 29", active: 2175, onHold: 228, issues: 171 },
+  { name: "May 30", active: 2200, onHold: 215, issues: 178 }
+];
+
+// Support tickets trend data (Last 30 days)
+export const supportTrendData: SupportTrendData[] = [
   { name: "May 1", technicalSupport: 150, customerService: 140, total: 290 },
-  { name: "May 2", technicalSupport: 215, customerService: 170, total: 385 },
-  { name: "May 3", technicalSupport: 208, customerService: 187, total: 395 },
-  { name: "May 4", technicalSupport: 172, customerService: 208, total: 380 },
-  { name: "May 5", technicalSupport: 147, customerService: 241, total: 388 },
-  { name: "May 6", technicalSupport: 124, customerService: 251, total: 375 },
-  { name: "May 7", technicalSupport: 109, customerService: 273, total: 382 },
-  { name: "May 8", technicalSupport: 116, customerService: 254, total: 370 },
-  { name: "May 9", technicalSupport: 111, customerService: 267, total: 378 },
-  { name: "May 10", technicalSupport: 118, customerService: 247, total: 365 },
-  { name: "May 11", active: 1995, onHold: 372, issues: 113 },
-  { name: "May 12", active: 2020, onHold: 360, issues: 120 },
-  { name: "May 13", active: 2015, onHold: 348, issues: 115 },
-  { name: "May 14", active: 2040, onHold: 335, issues: 142 },
-  { name: "May 15", active: 2035, onHold: 312, issues: 117 },
-  { name: "May 16", active: 2060, onHold: 300, issues: 124 },
-  { name: "May 17", active: 2055, onHold: 258, issues: 119 },
-  { name: "May 18", active: 2080, onHold: 245, issues: 96 },
-  { name: "May 19", active: 2075, onHold: 252, issues: 61 },
-  { name: "May 20", active: 2100, onHold: 240, issues: 88 },
-  { name: "May 21", active: 2095, onHold: 248, issues: 93 },
-  { name: "May 22", active: 2120, onHold: 135, issues: 70 },
-  { name: "May 23", active: 2115, onHold: 142, issues: 85 },
-  { name: "May 24", active: 2140, onHold: 230, issues: 132 },
-  { name: "May 25", active: 2135, onHold: 238, issues: 127 },
-  { name: "May 26", active: 2160, onHold: 265, issues: 134 },
-  { name: "May 27", active: 2155, onHold: 292, issues: 129 },
-  { name: "May 28", active: 2180, onHold: 320, issues: 136 },
-  { name: "May 29", active: 2175, onHold: 228, issues: 131 },
-  { name: "May 30", active: 2200, onHold: 215, issues: 138 }
+  { name: "May 2", technicalSupport: 155, customerService: 145, total: 300 },
+  { name: "May 3", technicalSupport: 148, customerService: 152, total: 300 },
+  { name: "May 4", technicalSupport: 162, customerService: 148, total: 310 },
+  { name: "May 5", technicalSupport: 157, customerService: 153, total: 310 },
+  { name: "May 6", technicalSupport: 164, customerService: 146, total: 310 },
+  { name: "May 7", technicalSupport: 159, customerService: 151, total: 310 },
+  { name: "May 8", technicalSupport: 166, customerService: 144, total: 310 },
+  { name: "May 9", technicalSupport: 161, customerService: 149, total: 310 },
+  { name: "May 10", technicalSupport: 168, customerService: 142, total: 310 },
+  { name: "May 11", technicalSupport: 163, customerService: 147, total: 310 },
+  { name: "May 12", technicalSupport: 170, customerService: 140, total: 310 },
+  { name: "May 13", technicalSupport: 165, customerService: 145, total: 310 },
+  { name: "May 14", technicalSupport: 172, customerService: 138, total: 310 },
+  { name: "May 15", technicalSupport: 167, customerService: 143, total: 310 },
+  { name: "May 16", technicalSupport: 174, customerService: 136, total: 310 },
+  { name: "May 17", technicalSupport: 169, customerService: 141, total: 310 },
+  { name: "May 18", technicalSupport: 176, customerService: 134, total: 310 },
+  { name: "May 19", technicalSupport: 171, customerService: 139, total: 310 },
+  { name: "May 20", technicalSupport: 178, customerService: 132, total: 310 },
+  { name: "May 21", technicalSupport: 173, customerService: 137, total: 310 },
+  { name: "May 22", technicalSupport: 180, customerService: 130, total: 310 },
+  { name: "May 23", technicalSupport: 175, customerService: 135, total: 310 },
+  { name: "May 24", technicalSupport: 182, customerService: 128, total: 310 },
+  { name: "May 25", technicalSupport: 177, customerService: 133, total: 310 },
+  { name: "May 26", technicalSupport: 184, customerService: 126, total: 310 },
+  { name: "May 27", technicalSupport: 179, customerService: 131, total: 310 },
+  { name: "May 28", technicalSupport: 186, customerService: 124, total: 310 },
+  { name: "May 29", technicalSupport: 181, customerService: 129, total: 310 },
+  { name: "May 30", technicalSupport: 188, customerService: 122, total: 310 }
 ];
 
 // Service tiers
