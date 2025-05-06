@@ -26,7 +26,7 @@ const SupportTicketsTrend = () => {
         <div className="flex justify-between items-center mb-2">
           <div>
             <h2 className="font-semibold text-sm">Support Ticket Trends</h2>
-            <p className="text-xs text-muted-foreground">Technical vs Customer Service tickets over time</p>
+            <p className="text-xs text-muted-foreground">Support tickets over time</p>
           </div>
           <div className="tooltip">
             <select className="text-xs bg-muted border border-input rounded py-0.0 px-1.5 focus:outline-none focus:ring-1 focus:ring-accent cursor-not-allowed opacity-75">

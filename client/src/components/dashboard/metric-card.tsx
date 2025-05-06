@@ -8,10 +8,9 @@ interface MetricCardProps {
   percentageChange: number;
   isPositive: boolean;
   icon: string;
-  comparePeriod: string;
 }
 
-const MetricCard = ({ title, value, percentageChange, isPositive, icon, comparePeriod }: MetricCardProps) => {
+const MetricCard = ({ title, value, percentageChange, isPositive, icon }: MetricCardProps) => {
   const renderIcon = () => {
     switch (icon) {
       case "users":
@@ -70,7 +69,6 @@ const MetricCard = ({ title, value, percentageChange, isPositive, icon, compareP
             )}
             {percentageChange}%
           </span>
-          <span className="text-muted-foreground ml-1">{comparePeriod}</span>
         </div>
       </CardContent>
     </Card>
