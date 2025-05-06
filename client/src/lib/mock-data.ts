@@ -121,36 +121,36 @@ export const statusDistribution: StatusData[] = [
 
 // Status trend data (Last 30 days)
 export const statusTrendData: StatusTrendData[] = [
-  { name: "May 1", active: 1900, onHold: 290, issues: 150 },
-  { name: "May 2", active: 1920, onHold: 285, issues: 145 },
-  { name: "May 3", active: 1915, onHold: 295, issues: 158 },
-  { name: "May 4", active: 1940, onHold: 280, issues: 162 },
-  { name: "May 5", active: 1935, onHold: 288, issues: 147 },
-  { name: "May 6", active: 1960, onHold: 275, issues: 154 },
-  { name: "May 7", active: 1955, onHold: 282, issues: 149 },
-  { name: "May 8", active: 1980, onHold: 270, issues: 156 },
-  { name: "May 9", active: 1975, onHold: 278, issues: 151 },
-  { name: "May 10", active: 2000, onHold: 265, issues: 158 },
-  { name: "May 11", active: 1995, onHold: 272, issues: 153 },
-  { name: "May 12", active: 2020, onHold: 260, issues: 160 },
-  { name: "May 13", active: 2015, onHold: 268, issues: 155 },
-  { name: "May 14", active: 2040, onHold: 255, issues: 162 },
-  { name: "May 15", active: 2035, onHold: 262, issues: 157 },
-  { name: "May 16", active: 2060, onHold: 250, issues: 164 },
-  { name: "May 17", active: 2055, onHold: 258, issues: 159 },
-  { name: "May 18", active: 2080, onHold: 245, issues: 166 },
-  { name: "May 19", active: 2075, onHold: 252, issues: 161 },
-  { name: "May 20", active: 2100, onHold: 240, issues: 168 },
-  { name: "May 21", active: 2095, onHold: 248, issues: 163 },
-  { name: "May 22", active: 2120, onHold: 235, issues: 170 },
-  { name: "May 23", active: 2115, onHold: 242, issues: 165 },
-  { name: "May 24", active: 2140, onHold: 230, issues: 172 },
-  { name: "May 25", active: 2135, onHold: 238, issues: 167 },
-  { name: "May 26", active: 2160, onHold: 225, issues: 174 },
-  { name: "May 27", active: 2155, onHold: 232, issues: 169 },
-  { name: "May 28", active: 2180, onHold: 220, issues: 176 },
-  { name: "May 29", active: 2175, onHold: 228, issues: 171 },
-  { name: "May 30", active: 2200, onHold: 215, issues: 178 }
+  { name: "May 1", active: 629, onHold: 290, issues: 150 },
+  { name: "May 2", active: 620, onHold: 285, issues: 145 },
+  { name: "May 3", active: 615, onHold: 295, issues: 158 },
+  { name: "May 4", active: 640, onHold: 280, issues: 162 },
+  { name: "May 5", active: 635, onHold: 328, issues: 87 },
+  { name: "May 6", active: 660, onHold: 325, issues: 104 },
+  { name: "May 7", active: 655, onHold: 312, issues: 109 },
+  { name: "May 8", active: 680, onHold: 270, issues: 156 },
+  { name: "May 9", active: 675, onHold: 258, issues: 151 },
+  { name: "May 10", active: 600, onHold: 245, issues: 158 },
+  { name: "May 11", active: 695, onHold: 272, issues: 153 },
+  { name: "May 12", active: 620, onHold: 260, issues: 160 },
+  { name: "May 13", active: 615, onHold: 268, issues: 155 },
+  { name: "May 14", active: 640, onHold: 295, issues: 212 },
+  { name: "May 15", active: 635, onHold: 262, issues: 247 },
+  { name: "May 16", active: 660, onHold: 250, issues: 264 },
+  { name: "May 17", active: 655, onHold: 238, issues: 259 },
+  { name: "May 18", active: 680, onHold: 245, issues: 236 },
+  { name: "May 19", active: 675, onHold: 252, issues: 221 },
+  { name: "May 20", active: 600, onHold: 240, issues: 168 },
+  { name: "May 21", active: 695, onHold: 228, issues: 163 },
+  { name: "May 22", active: 620, onHold: 215, issues: 170 },
+  { name: "May 23", active: 615, onHold: 242, issues: 165 },
+  { name: "May 24", active: 640, onHold: 280, issues: 322 },
+  { name: "May 25", active: 635, onHold: 278, issues: 317 },
+  { name: "May 26", active: 660, onHold: 265, issues: 274 },
+  { name: "May 27", active: 655, onHold: 262, issues: 249 },
+  { name: "May 28", active: 680, onHold: 250, issues: 216 },
+  { name: "May 29", active: 675, onHold: 248, issues: 171 },
+  { name: "May 30", active: 600, onHold: 215, issues: 178 }
 ];
 
 // Support tickets trend data (Last 30 days)
@@ -202,14 +202,14 @@ export const issueTypes: IssueType[] = [
 
 // Operational stages
 export const operationalStages: OperationalStage[] = [
-  { name: "Satisfied and Processing", count: 824, percentage: 33 },
-  { name: "Pending Installation Agreement", count: 652, percentage: 27 },
-  { name: "Installation Ready", count: 491, percentage: 20 },
+  { name: "Underwriting", count: 25, percentage: 1 },
   { name: "Deployment", count: 196, percentage: 8 },
-  { name: "Quality Assurance", count: 147, percentage: 6 },
-  { name: "Programming", count: 98, percentage: 4 },
   { name: "Order Administration", count: 25, percentage: 1 },
-  { name: "Underwriting", count: 25, percentage: 1 }
+{ name: "Installation Ready", count: 491, percentage: 20 },
+  { name: "Programming", count: 98, percentage: 4 },
+{ name: "Pending Installation Agreement", count: 652, percentage: 27 },
+  { name: "Quality Assurance", count: 147, percentage: 6 },
+{ name: "Satisfied and Processing", count: 824, percentage: 33 },
 ];
 
 // Recent activity

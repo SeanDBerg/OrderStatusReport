@@ -50,15 +50,15 @@ const MetricCard = ({ title, value, percentageChange, isPositive, icon }: Metric
 
   return (
     <Card className="shadow-sm">
-      <CardContent className="p-3">
-        <div className="flex items-center justify-between mb-2">
+      <CardContent className="p-1">
+        <div className="flex items-center justify-between mb-0">
           <h3 className="text-xs font-medium text-muted-foreground">{title}</h3>
-          <div className={`p-1 ${getIconBgColor()} rounded-full`}>
+          <div className={`p-0 ${getIconBgColor()} rounded-full`}>
             {renderIcon()}
           </div>
         </div>
-        <div className="mb-1">
-          <span className="text-xl font-bold">{formatNumber(value)}</span>
+        <div className="mb-0">
+          <span className="text-medium font-bold">{formatNumber(value)}</span>
         </div>
         <div className="flex items-center text-xs">
           <span className={`font-medium flex items-center ${isPositive ? 'text-success' : 'text-destructive'}`}>

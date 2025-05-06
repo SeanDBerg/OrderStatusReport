@@ -14,15 +14,8 @@ import { formatDate, getInitials, getStatusColor } from "@/lib/utils";
 const RecentActivity = () => {
   return (
     <Card className="shadow-sm">
-      <CardContent className="p-3">
-        <div className="flex justify-between items-center mb-2">
-          <h2 className="font-semibold text-sm">Recent Account Activity</h2>
-          <div className="tooltip">
-            <button className="text-xs font-medium text-accent hover:underline focus:outline-none">
-              View All
-            </button>
-            <div className="tooltip-content">Feature disabled in demonstration mode</div>
-          </div>
+      <CardContent className="p-1">
+        <div className="flex justify-between items-center mb-0">
         </div>
         
         {/* Activity table */}
@@ -31,7 +24,6 @@ const RecentActivity = () => {
             <TableHeader>
               <TableRow className="hover:bg-transparent">
                 <TableHead className="h-7 py-1 font-medium">Account</TableHead>
-                <TableHead className="h-7 py-1 font-medium">Tier</TableHead>
                 <TableHead className="h-7 py-1 font-medium">Status</TableHead>
                 <TableHead className="h-7 py-1 font-medium">Stage</TableHead>
                 <TableHead className="h-7 py-1 font-medium">Updated</TableHead>
@@ -51,9 +43,6 @@ const RecentActivity = () => {
                         <div className="text-xs text-muted-foreground">ID: {activity.id}</div>
                       </div>
                     </div>
-                  </TableCell>
-                  <TableCell className="py-1.5">
-                    {activity.serviceTier}
                   </TableCell>
                   <TableCell className="py-1.5">
                     <span className={`px-1.5 py-0.5 text-xs font-medium rounded-full ${getStatusColor(activity.status)}`}>

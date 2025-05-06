@@ -23,11 +23,10 @@ const CustomTooltip = ({ active, payload }: any) => {
 const StatusDistribution = () => {
   return (
     <Card className="shadow-sm">
-      <CardContent className="p-3">
-        <div className="flex justify-between items-center mb-2">
+      <CardContent className="p-1">
+        <div className="flex justify-between items-center mb-0">
           <div>
             <h2 className="font-semibold text-sm">Status Distribution</h2>
-            <p className="text-xs text-muted-foreground">Current account status breakdown</p>
           </div>
           <div className="tooltip">
             <select className="text-xs bg-muted border border-input rounded py-0.0 px-1.5 focus:outline-none focus:ring-1 focus:ring-accent cursor-not-allowed opacity-75">
@@ -36,8 +35,8 @@ const StatusDistribution = () => {
             <div className="tooltip-content">Filter disabled in demonstration mode</div>
           </div>
         </div>
-        <div className="flex h-[120px]">
-          <div className="w-[120px]">
+        <div className="flex h-[100px]">
+          <div className="w-[100px]">
             <ResponsiveContainer width="100%" height="100%">
               <PieChart margin={{ top: 0, right: 0, bottom: 0, left: 0 }}>
                 <Pie

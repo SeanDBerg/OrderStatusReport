@@ -40,7 +40,7 @@ const Dashboard = () => {
           </div>
 
           {/* Dashboard title */}
-          <div className="flex flex-wrap justify-between items-center mb-3">
+          <div className="flex flex-wrap justify-between items-center mb-1">
             <h1 className="text-lg font-bold">Account Analytics Dashboard</h1>
             <div className="flex space-x-2">
               <div className="tooltip">
@@ -59,15 +59,20 @@ const Dashboard = () => {
           </div>
 
           {/* Key metrics overview */}
-          <div className="grid grid-cols-3 md:grid-cols-6 gap-2 mb-3">
+          <div className="grid grid-cols-3 md:grid-cols-6 gap-1 mb-1">
             {metricCards.map((card, index) => (
               <MetricCard key={index} {...card} />
             ))}
           </div>
 
-          <div className="grid grid-cols-12 gap-3">
+          {/* Top row: Operational Stages */}
+          <div className="col-span-12">
+            <OperationalStages />
+          </div>
+
+          <div className="grid grid-cols-12 gap-1">
             {/* First row: Status Trend & Distribution side by side */}
-            <div className="col-span-12 grid grid-cols-2 gap-3">
+            <div className="col-span-12 grid grid-cols-2 gap-1">
               <div className="col-span-1">
                 <StatusTrend />
               </div>
@@ -77,7 +82,7 @@ const Dashboard = () => {
             </div>
             
             {/* Second row: Support Tickets Trend & Service Tier Distribution */}
-            <div className="col-span-12 grid grid-cols-2 gap-3">
+            <div className="col-span-12 grid grid-cols-2 gap-1">
               <div className="col-span-1">
                 <SupportTicketsTrend />
               </div>
@@ -86,10 +91,7 @@ const Dashboard = () => {
               </div>
             </div>
             
-            {/* Third row: Operational Stages */}
-            <div className="col-span-12">
-              <OperationalStages />
-            </div>
+
             
             {/* Third row: Recent Account Activity */}
             <div className="col-span-12">

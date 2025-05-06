@@ -28,11 +28,10 @@ const ServiceTiers = () => {
 
   return (
     <Card className="shadow-sm">
-      <CardContent className="p-3">
-        <div className="flex justify-between items-center mb-2">
+      <CardContent className="p-1">
+        <div className="flex justify-between items-center mb-0">
           <div>
             <h2 className="font-semibold text-sm">Service Tier Distribution</h2>
-            <p className="text-xs text-muted-foreground">Accounts by service level & issue type</p>
           </div>
           <div className="tooltip">
             <select className="text-xs bg-muted border border-input rounded py-0.0 px-1.5 focus:outline-none focus:ring-1 focus:ring-accent cursor-not-allowed opacity-75">
@@ -41,7 +40,7 @@ const ServiceTiers = () => {
             <div className="tooltip-content">Filter disabled in demonstration mode</div>
           </div>
         </div>
-        <div className="h-[120px]">
+        <div className="h-[100px]">
           <ResponsiveContainer width="100%" height="100%">
             <BarChart
               data={transformedData}
