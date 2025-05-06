@@ -21,8 +21,21 @@ const CustomTooltip = ({ active, payload, label }: any) => {
 
 const ServiceTiers = () => {
   const transformedData = [
-    { name: 'Technical', tier1: serviceTiers[0].technical, tier2: serviceTiers[1].technical, tier3: serviceTiers[2].technical },
-    { name: 'Customer Service', tier1: serviceTiers[0].customerService, tier2: serviceTiers[1].customerService, tier3: serviceTiers[2].customerService }
+    { 
+      name: 'T1',
+      Technical: serviceTiers[0].technical,
+      "Customer Service": serviceTiers[0].customerService
+    },
+    { 
+      name: 'T2',
+      Technical: serviceTiers[1].technical,
+      "Customer Service": serviceTiers[1].customerService
+    },
+    { 
+      name: 'T3',
+      Technical: serviceTiers[2].technical,
+      "Customer Service": serviceTiers[2].customerService
+    }
   ];
 
   return (
@@ -56,9 +69,20 @@ const ServiceTiers = () => {
               />
               <Tooltip content={<CustomTooltip />} />
               <Legend iconSize={8} wrapperStyle={{ fontSize: '10px' }} />
-              <Bar dataKey="tier1" name="Tier 1" fill="hsl(var(--chart-1))" barSize={20} />
-              <Bar dataKey="tier2" name="Tier 2" fill="hsl(var(--chart-2))" barSize={20} />
-              <Bar dataKey="tier3" name="Tier 3" fill="hsl(var(--chart-3))" barSize={20} />
+              <Bar 
+                dataKey="Technical" 
+                stackId="a"
+                fill="hsl(var(--chart-1))" 
+                radius={[0, 0, 0, 0]} 
+                barSize={20}
+              />
+              <Bar 
+                dataKey="Customer Service" 
+                stackId="a"
+                fill="hsl(var(--chart-4))" 
+                radius={[2, 2, 0, 0]} 
+                barSize={20}
+              />
             </BarChart>
           </ResponsiveContainer>
         </div>
