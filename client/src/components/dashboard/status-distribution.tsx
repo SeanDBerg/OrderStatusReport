@@ -28,16 +28,25 @@ const StatusDistribution = () => {
           <h2 className="font-semibold text-sm">Status Distribution</h2>
           <p className="text-xs text-muted-foreground">Current account status breakdown</p>
         </div>
-        <div className="flex">
-          <div className="h-[80px] w-[80px]">
+        <div className="flex justify-between items-center mb-2">
+          <h2 className="font-semibold text-sm">Status Distribution</h2>
+          <div className="tooltip">
+            <select className="text-xs bg-muted border border-input rounded py-0.0 px-1.5 focus:outline-none focus:ring-1 focus:ring-accent cursor-not-allowed opacity-75">
+              <option>Last 30 Days</option>
+            </select>
+            <div className="tooltip-content">Filter disabled in demonstration mode</div>
+          </div>
+        </div>
+        <div className="flex h-[120px]">
+          <div className="w-[120px]">
             <ResponsiveContainer width="100%" height="100%">
-              <PieChart>
+              <PieChart margin={{ top: 0, right: 0, bottom: 0, left: 0 }}>
                 <Pie
                   data={statusDistribution}
                   cx="50%"
                   cy="50%"
                   innerRadius={0}
-                  outerRadius={35}
+                  outerRadius={45}
                   fill="#8884d8"
                   paddingAngle={1}
                   dataKey="value"
@@ -53,7 +62,7 @@ const StatusDistribution = () => {
           </div>
           
           {/* Status table */}
-          <div className="flex-1">
+          <div className="flex-1 overflow-y-auto">
             <div className="grid grid-cols-2 gap-x-2 gap-y-0.5 text-xs">
               {statusDistribution.map((status, index) => (
                 <div key={index} className="flex items-center py-0.5">
