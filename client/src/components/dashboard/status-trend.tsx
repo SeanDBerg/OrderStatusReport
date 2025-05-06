@@ -25,10 +25,10 @@ const StatusTrend = () => {
       <CardContent className="p-1">
         <div className="flex justify-between items-center mb-0">
           <div>
-          <h2 className="font-semibold text-sm">Account Status Trend</h2>
+          <h2 className="font-semibold text-sm text-foreground">Account Status Trend</h2>
           </div>
           <div className="tooltip">
-            <select className="text-xs bg-muted border border-input rounded py-0.0 px-1.5 focus:outline-none focus:ring-1 focus:ring-accent cursor-not-allowed opacity-75">
+            <select className="text-xs bg-secondary/50 text-secondary-foreground border border-input rounded py-0.0 px-1.5 focus:outline-none focus:ring-1 focus:ring-accent cursor-not-allowed opacity-75">
               <option>Last 30 Days</option>
             </select>
             <div className="tooltip-content">Filter disabled in demonstration mode</div>
