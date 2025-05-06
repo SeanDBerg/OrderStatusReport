@@ -111,14 +111,20 @@ export const statusDistribution: StatusData[] = [
 
 // Trend data
 export const trendData: TrendData[] = [
-  { name: "Apr 1", active: 1800, onHold: 280, issues: 100 },
-  { name: "Apr 7", active: 1850, onHold: 270, issues: 95 },
-  { name: "Apr 14", active: 1905, onHold: 275, issues: 105 },
-  { name: "Apr 21", active: 1930, onHold: 260, issues: 100 },
-  { name: "Apr 28", active: 1980, onHold: 265, issues: 95 },
-  { name: "May 5", active: 2000, onHold: 280, issues: 90 },
-  { name: "May 12", active: 1985, onHold: 275, issues: 95 },
-  { name: "May 19", active: 2050, onHold: 270, issues: 100 }
+  { name: "May 1", active: 1800, onHold: 280, issues: 100 },
+  { name: "May 2", active: 1820, onHold: 275, issues: 98 },
+  { name: "May 3", active: 1850, onHold: 270, issues: 95 },
+  { name: "May 4", active: 1870, onHold: 272, issues: 97 },
+  { name: "May 5", active: 1900, onHold: 275, issues: 99 },
+  { name: "May 6", active: 1920, onHold: 270, issues: 96 },
+  { name: "May 7", active: 1940, onHold: 268, issues: 94 },
+  { name: "May 8", active: 1960, onHold: 265, issues: 93 },
+  { name: "May 9", active: 1980, onHold: 270, issues: 95 },
+  { name: "May 10", active: 2000, onHold: 275, issues: 98 },
+  { name: "May 11", active: 2020, onHold: 272, issues: 96 },
+  { name: "May 12", active: 2040, onHold: 268, issues: 94 },
+  { name: "May 13", active: 2060, onHold: 265, issues: 92 },
+  { name: "May 14", active: 2050, onHold: 270, issues: 95 }
 ];
 
 // Service tiers

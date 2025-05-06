@@ -47,13 +47,13 @@ const StatusTrend = () => {
               <XAxis 
                 dataKey="name" 
                 stroke="var(--muted-foreground)" 
-                tick={{ fontSize: 10 }}
+                tick={{ fontSize: 10, fill: 'var(--muted-foreground)' }}
                 tickLine={{ stroke: 'var(--border)' }}
                 axisLine={{ stroke: 'var(--border)' }}
               />
               <YAxis 
                 stroke="var(--muted-foreground)" 
-                tick={{ fontSize: 10 }}
+                tick={{ fontSize: 10, fill: 'var(--muted-foreground)' }}
                 tickLine={{ stroke: 'var(--border)' }}
                 axisLine={{ stroke: 'var(--border)' }}
                 width={25}

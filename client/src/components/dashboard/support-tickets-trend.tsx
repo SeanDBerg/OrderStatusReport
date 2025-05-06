@@ -49,7 +49,11 @@ const SupportTicketsTrend = () => {
                 width={35}
               />
               <Tooltip content={<CustomTooltip />} />
-              <Legend iconSize={8} wrapperStyle={{ fontSize: '10px', color: 'var(--muted-foreground)' }} />
+              <Legend 
+                iconSize={8} 
+                wrapperStyle={{ fontSize: '10px' }}
+                formatter={(value) => <span style={{ color: 'var(--muted-foreground)' }}>{value}</span>}
+              />
               <Line
                 type="monotone"
                 dataKey="issues"
