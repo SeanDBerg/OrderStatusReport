@@ -26,20 +26,20 @@ const StatusTrend = () => {
         <div className="flex justify-between items-center mb-2">
           <h2 className="font-semibold text-sm">Account Status Trend</h2>
           <div className="tooltip">
-            <select className="text-xs bg-muted border border-input rounded py-0.5 px-1.5 focus:outline-none focus:ring-1 focus:ring-accent cursor-not-allowed opacity-75">
+            <select className="text-xs bg-muted border border-input rounded py-0.0 px-1.5 focus:outline-none focus:ring-1 focus:ring-accent cursor-not-allowed opacity-75">
               <option>Last 30 Days</option>
             </select>
             <div className="tooltip-content">Filter disabled in demonstration mode</div>
           </div>
         </div>
-        <div className="h-44">
+        <div className="h-20">
           <ResponsiveContainer width="100%" height="100%">
             <LineChart
               data={trendData}
               margin={{
-                top: 5,
+                top: 0,
                 right: 25,
-                left: 5,
+                left: 0,
                 bottom: 5,
               }}
             >
