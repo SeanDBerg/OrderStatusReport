@@ -19,7 +19,9 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import path from "path";
 import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
-var vite_config_default = defineConfig({
+var vite_config_default = defineConfig(async () => ({
+  base: "/OrderStatusReport/",
+  // 👈 Base path matches GitHub repo name
   plugins: [
     react(),
     runtimeErrorOverlay(),
@@ -37,11 +39,13 @@ var vite_config_default = defineConfig({
     }
   },
   root: path.resolve(import.meta.dirname, "client"),
+  // 👈 still using "client" as project root
   build: {
-    outDir: path.resolve(import.meta.dirname, "dist/public"),
+    outDir: path.resolve(import.meta.dirname, "dist"),
+    // 👈 GH Pages expects /dist as default
     emptyOutDir: true
   }
-});
+}));
 
 // server/vite.ts
 import { nanoid } from "nanoid";
