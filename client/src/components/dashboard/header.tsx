@@ -32,7 +32,7 @@ const Header = ({ toggleSidebar }: HeaderProps) => {
           {/* Main navigation */}
           <nav className="hidden md:flex space-x-4 ml-4">
             <a href="#" className="px-2 py-0.5 text-white text-xs font-medium border-b border-accent">Dashboard</a>
-            <div className="relative tooltip">
+            <div className="tooltip">
               <button 
                 onClick={() => showDemoMessage('Reports')}
                 className="px-2 py-0.5 text-gray-300 hover:text-white text-xs cursor-pointer"
@@ -41,7 +41,7 @@ const Header = ({ toggleSidebar }: HeaderProps) => {
               </button>
               <div className="tooltip-content">This function is disabled in demo mode</div>
             </div>
-            <div className="relative tooltip">
+            <div className="tooltip">
               <button 
                 onClick={() => showDemoMessage('Accounts')}
                 className="px-2 py-0.5 text-gray-300 hover:text-white text-xs cursor-pointer"
@@ -50,7 +50,7 @@ const Header = ({ toggleSidebar }: HeaderProps) => {
               </button>
               <div className="tooltip-content">This function is disabled in demo mode</div>
             </div>
-            <div className="relative tooltip">
+            <div className="tooltip">
               <button 
                 onClick={() => showDemoMessage('Settings')}
                 className="px-2 py-0.5 text-gray-300 hover:text-white text-xs cursor-pointer"
@@ -74,7 +74,7 @@ const Header = ({ toggleSidebar }: HeaderProps) => {
           </button>
           
           {/* Export button */}
-          <div className="relative tooltip">
+          <div className="tooltip">
             <button 
               onClick={() => showDemoMessage('Download/Export')}
               className="p-1 rounded-full hover:bg-secondary focus:outline-none" 
@@ -86,7 +86,7 @@ const Header = ({ toggleSidebar }: HeaderProps) => {
           </div>
           
           {/* Print button */}
-          <div className="relative tooltip">
+          <div className="tooltip">
             <button 
               onClick={() => showDemoMessage('Print')}
               className="p-1 rounded-full hover:bg-secondary focus:outline-none" 

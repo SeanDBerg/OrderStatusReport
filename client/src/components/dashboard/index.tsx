@@ -53,7 +53,7 @@ const Dashboard = () => {
           <div className="flex flex-wrap justify-between items-center mb-1">
             <h1 className="text-lg font-bold">Account Analytics Dashboard</h1>
             <div className="flex space-x-2">
-              <div className="relative tooltip">
+              <div className="tooltip">
                 <button 
                   onClick={() => showDemoMessage('Generate Report')}
                   className="px-2 py-1 bg-accent text-accent-foreground rounded hover:bg-accent/90 text-xs font-medium focus:outline-none"
@@ -62,7 +62,7 @@ const Dashboard = () => {
                 </button>
                 <div className="tooltip-content">This function is disabled in demo mode</div>
               </div>
-              <div className="relative tooltip">
+              <div className="tooltip">
                 <button 
                   onClick={() => showDemoMessage('Share Dashboard')}
                   className="px-2 py-1 bg-card border border-border rounded text-foreground text-xs font-medium focus:outline-none"
