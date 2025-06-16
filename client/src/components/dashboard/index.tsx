@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useToast } from "@/hooks/use-toast";
 import Header from "./header";
 import Sidebar from "./sidebar";
 import Footer from "./footer";
@@ -13,9 +14,18 @@ import { metricCards } from "@/lib/mock-data";
 
 const Dashboard = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const { toast } = useToast();
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
+  };
+
+  const showDemoMessage = (feature: string) => {
+    toast({
+      title: "Demo Mode",
+      description: `${feature} is disabled in demonstration mode`,
+      duration: 3000,
+    });
   };
 
   return (
@@ -43,17 +53,23 @@ const Dashboard = () => {
           <div className="flex flex-wrap justify-between items-center mb-1">
             <h1 className="text-lg font-bold">Account Analytics Dashboard</h1>
             <div className="flex space-x-2">
-              <div className="tooltip">
-                <button className="px-2 py-1 bg-accent text-accent-foreground rounded hover:bg-accent/90 text-xs font-medium focus:outline-none">
+              <div className="relative tooltip">
+                <button 
+                  onClick={() => showDemoMessage('Generate Report')}
+                  className="px-2 py-1 bg-accent text-accent-foreground rounded hover:bg-accent/90 text-xs font-medium focus:outline-none"
+                >
                   <span className="hidden sm:inline-block">Generate</span> Report
                 </button>
-                <div className="tooltip-content">Report generation disabled in demonstration mode</div>
+                <div className="tooltip-content">This function is disabled in demo mode</div>
               </div>
-              <div className="tooltip">
-                <button className="px-2 py-1 bg-card border border-border rounded text-foreground text-xs font-medium focus:outline-none">
+              <div className="relative tooltip">
+                <button 
+                  onClick={() => showDemoMessage('Share Dashboard')}
+                  className="px-2 py-1 bg-card border border-border rounded text-foreground text-xs font-medium focus:outline-none"
+                >
                   <span className="hidden sm:inline-block">Share</span> Dashboard
                 </button>
-                <div className="tooltip-content">Sharing disabled in demonstration mode</div>
+                <div className="tooltip-content">This function is disabled in demo mode</div>
               </div>
             </div>
           </div>

@@ -1,4 +1,5 @@
 import { useTheme } from "@/components/ui/theme-provider";
+import { useToast } from "@/hooks/use-toast";
 import { Sun, Moon, Download, Printer } from "lucide-react";
 
 interface HeaderProps {
@@ -7,9 +8,18 @@ interface HeaderProps {
 
 const Header = ({ toggleSidebar }: HeaderProps) => {
   const { theme, setTheme } = useTheme();
+  const { toast } = useToast();
 
   const toggleTheme = () => {
     setTheme(theme === "dark" ? "light" : "dark");
+  };
+
+  const showDemoMessage = (feature: string) => {
+    toast({
+      title: "Demo Mode",
+      description: `${feature} is disabled in demonstration mode`,
+      duration: 3000,
+    });
   };
 
   return (
@@ -22,17 +32,32 @@ const Header = ({ toggleSidebar }: HeaderProps) => {
           {/* Main navigation */}
           <nav className="hidden md:flex space-x-4 ml-4">
             <a href="#" className="px-2 py-0.5 text-white text-xs font-medium border-b border-accent">Dashboard</a>
-            <div className="tooltip px-2 py-0.5 text-gray-300 hover:text-white text-xs">
-              Reports
-              <div className="tooltip-content">Disabled in demonstration mode</div>
+            <div className="relative tooltip">
+              <button 
+                onClick={() => showDemoMessage('Reports')}
+                className="px-2 py-0.5 text-gray-300 hover:text-white text-xs cursor-pointer"
+              >
+                Reports
+              </button>
+              <div className="tooltip-content">This function is disabled in demo mode</div>
             </div>
-            <div className="tooltip px-2 py-0.5 text-gray-300 hover:text-white text-xs">
-              Accounts
-              <div className="tooltip-content">Disabled in demonstration mode</div>
+            <div className="relative tooltip">
+              <button 
+                onClick={() => showDemoMessage('Accounts')}
+                className="px-2 py-0.5 text-gray-300 hover:text-white text-xs cursor-pointer"
+              >
+                Accounts
+              </button>
+              <div className="tooltip-content">This function is disabled in demo mode</div>
             </div>
-            <div className="tooltip px-2 py-0.5 text-gray-300 hover:text-white text-xs">
-              Settings
-              <div className="tooltip-content">Disabled in demonstration mode</div>
+            <div className="relative tooltip">
+              <button 
+                onClick={() => showDemoMessage('Settings')}
+                className="px-2 py-0.5 text-gray-300 hover:text-white text-xs cursor-pointer"
+              >
+                Settings
+              </button>
+              <div className="tooltip-content">This function is disabled in demo mode</div>
             </div>
           </nav>
         </div>
@@ -49,19 +74,27 @@ const Header = ({ toggleSidebar }: HeaderProps) => {
           </button>
           
           {/* Export button */}
-          <div className="tooltip">
-            <button className="p-1 rounded-full hover:bg-secondary focus:outline-none" aria-label="Export data">
+          <div className="relative tooltip">
+            <button 
+              onClick={() => showDemoMessage('Download/Export')}
+              className="p-1 rounded-full hover:bg-secondary focus:outline-none" 
+              aria-label="Export data"
+            >
               <Download className="h-4 w-4" />
             </button>
-            <div className="tooltip-content">Export disabled in demonstration mode</div>
+            <div className="tooltip-content">This function is disabled in demo mode</div>
           </div>
           
           {/* Print button */}
-          <div className="tooltip">
-            <button className="p-1 rounded-full hover:bg-secondary focus:outline-none" aria-label="Print report">
+          <div className="relative tooltip">
+            <button 
+              onClick={() => showDemoMessage('Print')}
+              className="p-1 rounded-full hover:bg-secondary focus:outline-none" 
+              aria-label="Print report"
+            >
               <Printer className="h-4 w-4" />
             </button>
-            <div className="tooltip-content">Print disabled in demonstration mode</div>
+            <div className="tooltip-content">This function is disabled in demo mode</div>
           </div>
           
           {/* User profile */}
