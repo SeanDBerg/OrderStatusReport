@@ -99,7 +99,6 @@ const Header = ({ toggleSidebar }: HeaderProps) => {
           
           {/* User profile */}
           <div className="flex items-center tooltip">
-            <span className="hidden md:inline-block mr-1 text-xs">Demo User</span>
             <div className="w-6 h-6 rounded-full bg-accent text-white flex items-center justify-center">
               <span className="font-medium text-xs">DU</span>
             </div>

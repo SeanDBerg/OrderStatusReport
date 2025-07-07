@@ -3,7 +3,12 @@ import react from '@vitejs/plugin-react'
 import path from 'path'
 
 export default defineConfig({
+  root: __dirname,
   plugins: [react()],
+  build: {
+    outDir: "../docs",      // if you chose one-stage flow
+    emptyOutDir: true
+  },
   resolve: {
     alias: {
       '@': path.resolve(__dirname, 'src'),
