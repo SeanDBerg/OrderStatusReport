@@ -4,7 +4,7 @@ import path from 'path'
 
 export default defineConfig({
   root: __dirname,
-  base: './',
+  base: '/OrderStatusReport/',
   plugins: [react()],
   build: {
     outDir: "../docs",      // if you chose one-stage flow
